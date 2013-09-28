@@ -1,8 +1,8 @@
 cd lib
 git clone https://github.com/kurchevskiy/deploy_vps.git deploy
 cd ../
-sudo -u git -H mkdir tmp/pids/
-sudo -u git -H mkdir tmp/sockets/
+sudo mkdir tmp/pids/
+sudo mkdir tmp/sockets/
 sudo chmod -R u+rwX  tmp/pids/
 sudo chmod -R u+rwX  tmp/sockets/
 
