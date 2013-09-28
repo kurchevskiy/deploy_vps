@@ -1,0 +1,7 @@
+sudo -u git -H mkdir tmp/pids/
+sudo -u git -H mkdir tmp/sockets/
+sudo chmod -R u+rwX  tmp/pids/
+sudo chmod -R u+rwX  tmp/sockets/
+
+sudo cp lib/support/init.d/gitlab /etc/init.d/gitlab
+sudo chmod +x /etc/init.d/gitlab

@@ -1,0 +1,14 @@
+sudo -u git -H mkdir tmp/pids/
+sudo -u git -H mkdir tmp/sockets/
+sudo chmod -R u+rwX  tmp/pids/
+sudo chmod -R u+rwX  tmp/sockets/
+
+sudo cp lib/nginx/ecommerce.run /etc/init.d/ecommerce.run
+
+sudo chmod +x /etc/init.d/ecommerce
+service ecommerce start
+
+sudo cp lib/nginx/ecommerce.nginx /etc/nginx/sites-available/ecommerce.nginx
+
+sudo ln -s /etc/nginx/sites-available/ecommerce /etc/nginx/sites-enabled/ecommerce
+service nginx restart
