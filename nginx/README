@@ -1,14 +1,17 @@
+cd lib
+git clone https://github.com/kurchevskiy/deploy_vps.git deploy
+cd ../
 sudo -u git -H mkdir tmp/pids/
 sudo -u git -H mkdir tmp/sockets/
 sudo chmod -R u+rwX  tmp/pids/
 sudo chmod -R u+rwX  tmp/sockets/
 
-sudo cp lib/nginx/ecommerce.run /etc/init.d/ecommerce.run
+sudo cp lib/deploy/nginx/ecommerce.run /etc/init.d/ecommerce.run
 mv /etc/init.d/ecommerce.run /etc/init.d/ecommerce
 sudo chmod +x /etc/init.d/ecommerce
 service ecommerce start
 
-sudo cp lib/nginx/ecommerce.nginx /etc/nginx/sites-available/ecommerce.nginx
+sudo cp lib/deploy/nginx/ecommerce.nginx /etc/nginx/sites-available/ecommerce.nginx
 sudo mv /etc/nginx/sites-available/ecommerce.nginx /etc/nginx/sites-available/ecommerce
 sudo ln -s /etc/nginx/sites-available/ecommerce /etc/nginx/sites-enabled/ecommerce
 service nginx restart
